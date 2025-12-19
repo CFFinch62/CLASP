@@ -1,0 +1,38 @@
+; test_06_logic_bitwise.logo
+; Tests: AND, OR, NOT, BITAND, BITOR, BITXOR, BITNOT, ASH
+
+print [=== Logic & Bitwise ===]
+
+; AND
+print and "true "true
+print and "true "false
+print (and "true "true "true)
+
+; OR
+print or "true "false
+print or "false "false
+
+; NOT
+print not "true
+print not "false
+
+; BITAND
+print bitand 5 3    ; 101 & 011 = 001 (1)
+print bitand 255 15
+
+; BITOR
+print bitor 5 3     ; 101 | 011 = 111 (7)
+
+; BITXOR
+print bitxor 5 3    ; 101 ^ 011 = 110 (6)
+
+; BITNOT
+print bitnot 0      ; -1 usually
+
+; ASH (Arithmetic Shift)
+; shift 1 left by 2
+print ash 1 2       ; 4
+; shift 8 right by 2
+print ash 8 -2      ; 2
+
+print [Logic & Bitwise: COMPLETE]

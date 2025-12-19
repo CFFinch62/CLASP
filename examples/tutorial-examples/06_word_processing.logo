@@ -1,0 +1,52 @@
+; 06_word_processing.logo
+; String/word manipulation in Logo
+
+make "word "programming
+
+; FIRST and LAST work on words too
+print first :word
+print last :word
+
+; BUTFIRST and BUTLAST
+print butfirst :word
+print butlast :word
+
+; COUNT gives length
+print count :word
+
+; WORD concatenates words
+print word "hello "world
+
+; Check word properties
+print wordp "hello
+print wordp [hello]
+print numberp 42
+print numberp "hello
+
+; Build words from parts
+to reverse.word :w
+  if emptyp :w [output "]
+  output word reverse.word butfirst :w first :w
+end
+
+print reverse.word "hello
+
+; Check if palindrome
+to palindrome? :w
+  output :w = reverse.word :w
+end
+
+print palindrome? "radar
+print palindrome? "hello
+
+; Count occurrences of a letter
+to count.letter :letter :w
+  if emptyp :w [output 0]
+  ifelse (first :w) = :letter [
+    output 1 + count.letter :letter butfirst :w
+  ] [
+    output count.letter :letter butfirst :w
+  ]
+end
+
+print count.letter "s "mississippi

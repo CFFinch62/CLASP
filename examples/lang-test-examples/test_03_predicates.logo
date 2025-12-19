@@ -1,0 +1,41 @@
+; test_03_predicates.logo
+; Tests: WORDP, LISTP, EMPTYP, EQUALP, NUMBERP, MEMBERP, SUBSTRINGP, BEFOREP
+
+print [=== Predicates ===]
+
+; WORDP / WORD?
+print wordp "hello
+print word? [list]
+
+; LISTP / LIST?
+print listp [a b c]
+print list? "word
+
+; EMPTYP / EMPTY?
+print emptyp []
+print empty? ""
+print emptyp [a]
+
+; EQUALP / EQUAL? / =
+print equalp 5 5
+print equal? "a "a
+print equalp [1 2] [1 2]
+
+; NUMBERP / NUMBER?
+print numberp 42
+print number? "hello
+print numberp 3.14
+
+; MEMBERP / MEMBER?
+print memberp "b [a b c]
+print member? "x [a b c]
+
+; SUBSTRINGP / SUBSTRING?
+print substringp "ell "hello
+print substring? "xyz "hello
+
+; BEFOREP / BEFORE? (alphabetical order)
+print beforep "apple "banana
+print before? "zebra "apple
+
+print [Predicates: COMPLETE]

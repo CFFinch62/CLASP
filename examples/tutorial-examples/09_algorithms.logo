@@ -1,0 +1,65 @@
+; 09_algorithms.logo
+; Classic algorithms implemented in Logo
+
+; INSERTION SORT
+to insertion.sort :lst
+  if emptyp :lst [output []]
+  output insert first :lst insertion.sort butfirst :lst
+end
+
+to insert :item :sorted
+  if emptyp :sorted [output (list :item)]
+  if :item < first :sorted [output fput :item :sorted]
+  output fput first :sorted insert :item butfirst :sorted
+end
+
+print insertion.sort [5 2 8 1 9 3]
+
+; GREATEST COMMON DIVISOR (Euclid's algorithm)
+to gcd :a :b
+  if :b = 0 [output :a]
+  output gcd :b remainder :a :b
+end
+
+print gcd 48 18
+print gcd 100 35
+
+; PRIME CHECK
+to prime? :n
+  if :n < 2 [output "false]
+  output prime.helper :n 2
+end
+
+to prime.helper :n :divisor
+  if :divisor * :divisor > :n [output "true]
+  if (remainder :n :divisor) = 0 [output "false]
+  output prime.helper :n :divisor + 1
+end
+
+print prime? 17
+print prime? 15
+print prime? 97
+
+; BINARY SEARCH (simplified)
+to binary.search :target :lst
+  output binary.search.helper :target :lst 1 count :lst
+end
+
+to binary.search.helper :target :lst :lo :hi
+  if :lo > :hi [output -1]
+  local "mid
+  make "mid int (:lo + :hi) / 2
+  local "midval
+  make "midval item :mid :lst
+  if :midval = :target [output :mid]
+  ifelse :midval > :target [
+    output binary.search.helper :target :lst :lo :mid - 1
+  ] [
+    output binary.search.helper :target :lst :mid + 1 :hi
+  ]
+end
+
+make "sorted [1 3 5 7 9 11 13 15 17 19]
+print binary.search 7 :sorted
+print binary.search 1 :sorted
+print binary.search 10 :sorted

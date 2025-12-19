@@ -1,0 +1,25 @@
+; test_09_io.logo
+; Tests: PRINT, TYPE, SHOW, and formatting
+
+print [=== Input / Output ===]
+
+; PRINT (PR) - newline at end
+print "Hello
+print [Hello World]
+(print "Line "with "multiple "inputs)
+
+; TYPE - no newline
+type "Hello
+type "World
+print "" ; newline to finish
+
+; SHOW - like print but shows brackets for lists
+show "word
+show [list with items]
+(show "multiple "inputs)
+
+; Output formatting checks
+print [List formatting check:]
+print [a [b c] d]
+
+print [IO: COMPLETE]

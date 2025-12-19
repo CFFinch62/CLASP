@@ -1,0 +1,59 @@
+; 05_recursion.logo
+; Recursion - solving problems by self-reference
+
+; Classic factorial example
+to factorial :n
+  if :n = 0 [output 1]
+  output :n * factorial :n - 1
+end
+
+print factorial 5
+print factorial 10
+
+; Fibonacci sequence
+to fib :n
+  if :n < 2 [output :n]
+  output (fib :n - 1) + (fib :n - 2)
+end
+
+; Print first 10 Fibonacci numbers
+print fib 0
+print fib 1
+print fib 2
+print fib 3
+print fib 4
+print fib 5
+print fib 6
+print fib 7
+print fib 8
+print fib 9
+
+; Sum a list recursively
+to sum.list :lst
+  if emptyp :lst [output 0]
+  output (first :lst) + sum.list butfirst :lst
+end
+
+print sum.list [1 2 3 4 5]
+
+; Reverse a list recursively
+to reverse.list :lst
+  if emptyp :lst [output []]
+  output lput first :lst reverse.list butfirst :lst
+end
+
+print reverse.list [a b c d e]
+
+; Find maximum in a list (simplified)
+to max.list :lst
+  if (count :lst) = 1 [output first :lst]
+  local "rest.max
+  make "rest.max max.list butfirst :lst
+  ifelse (first :lst) > :rest.max [
+    output first :lst
+  ] [
+    output :rest.max
+  ]
+end
+
+print max.list [3 7 2 9 4 1]

@@ -1,0 +1,12 @@
+; 01_hello_world.logo
+; Your first Logo program - printing text
+
+; The simplest Logo command: print
+print "Hello
+
+; You can print phrases using lists
+print [Welcome to Logo programming!]
+
+; Multiple print statements
+print [Logo is a powerful language]
+print [for learning computer science.]

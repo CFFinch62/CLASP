@@ -1,0 +1,59 @@
+; 10_turtle_basics.logo
+; Introduction to turtle graphics (the fun part!)
+
+; Basic movement
+forward 100    ; move forward 100 steps
+right 90       ; turn right 90 degrees
+forward 100
+right 90
+forward 100
+right 90
+forward 100    ; we've drawn a square!
+
+; Clear and start over
+clearscreen
+
+; Abbreviations work too
+fd 50  rt 90  fd 50  rt 90  fd 50  rt 90  fd 50
+
+; Draw a triangle
+cs  ; clearscreen
+repeat 3 [fd 100 rt 120]
+
+; Draw a hexagon
+cs
+repeat 6 [fd 50 rt 60]
+
+; Draw a star
+cs
+repeat 5 [fd 100 rt 144]
+
+; Procedure for any regular polygon
+to polygon :sides :size
+  repeat :sides [fd :size rt 360 / :sides]
+end
+
+cs
+polygon 5 60   ; pentagon
+polygon 8 40   ; octagon
+
+; Spiral
+to spiral :size
+  if :size > 200 [stop]
+  fd :size rt 91
+  spiral :size + 2
+end
+
+cs
+spiral 1
+
+; Pen control
+penup          ; lift pen (don't draw)
+fd 50
+pendown        ; lower pen (draw again)
+fd 50
+
+; Position and heading
+home           ; go back to center, facing up
+print pos      ; current position [0 0]
+print heading  ; current direction 0

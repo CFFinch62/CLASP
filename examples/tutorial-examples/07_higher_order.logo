@@ -1,0 +1,39 @@
+; 07_higher_order.logo
+; Higher-order functions - procedures that work on procedures
+
+; Define a procedure to double a number
+to double :n
+  output :n * 2
+end
+
+; Call it directly
+print double 5
+print double 10
+
+; Using RUN for dynamic code
+make "code [print "Hello!]
+run :code
+
+; Custom map implementation using recursion
+to my.map :proc :lst
+  if emptyp :lst [output []]
+  output fput run (list :proc first :lst) my.map :proc butfirst :lst
+end
+
+print my.map "double [10 20 30]
+
+; Custom filter implementation
+to my.filter :pred :lst
+  if emptyp :lst [output []]
+  ifelse run (list :pred first :lst) [
+    output fput first :lst my.filter :pred butfirst :lst
+  ] [
+    output my.filter :pred butfirst :lst
+  ]
+end
+
+to positive? :n
+  output :n > 0
+end
+
+print my.filter "positive? [-2 3 -1 5 0 -4 8]

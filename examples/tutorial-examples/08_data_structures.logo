@@ -1,0 +1,70 @@
+; 08_data_structures.logo
+; Building data structures with lists
+
+; ASSOCIATION LISTS (key-value pairs)
+make "person [[name Alice] [age 30] [city Boston]]
+
+; Lookup in association list
+to assoc :key :alist
+  if emptyp :alist [output []]
+  if (first first :alist) = :key [output last first :alist]
+  output assoc :key butfirst :alist
+end
+
+print assoc "name :person
+print assoc "age :person
+print assoc "city :person
+
+; Add/update key
+to assoc.put :key :value :alist
+  if emptyp :alist [output list (list :key :value)]
+  if (first first :alist) = :key [
+    output fput (list :key :value) butfirst :alist
+  ]
+  output fput first :alist assoc.put :key :value butfirst :alist
+end
+
+print assoc.put "age 31 :person
+
+; STACK operations
+make "stack []
+
+to push :item
+  make "stack fput :item :stack
+end
+
+to pop
+  if emptyp :stack [output []]
+  local "top
+  make "top first :stack
+  make "stack butfirst :stack
+  output :top
+end
+
+push 1
+push 2
+push 3
+print pop
+print pop
+print :stack
+
+; QUEUE operations
+make "queue []
+
+to enqueue :item
+  make "queue lput :item :queue
+end
+
+to dequeue
+  if emptyp :queue [output []]
+  local "front
+  make "front first :queue
+  make "queue butfirst :queue
+  output :front
+end
+
+enqueue "first
+enqueue "second
+enqueue "third
+print dequeue
+print dequeue

@@ -1,0 +1,33 @@
+; test_08_procedures_scope.logo
+; Tests: TO/END included implicitly, MAKE, THING, LOCAL, Global vs Local scope
+
+print [=== Procedures & Scope ===]
+
+; Global variable
+make "g_var "global
+
+to scope.test
+  ; Read global
+  print sentence [Global inside:] :g_var
+  
+  ; Local variable shadowing global
+  local "g_var
+  make "g_var "local_shadow
+  print sentence [Shadowed global:] :g_var
+  
+  ; Pure local
+  local "l_var
+  make "l_var "pure_local
+  print sentence [Local var:] :l_var
+end
+
+scope.test
+
+; Verify global is untouched
+print sentence [Global outside:] :g_var
+
+; THING - dynamic access
+make "myvar "dynamic
+print thing "myvar
+
+print [Procedures & Scope: COMPLETE]

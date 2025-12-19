@@ -1,0 +1,40 @@
+; test_02_data_selectors.logo
+; Tests: FIRST, LAST, BUTFIRST, BUTLAST, ITEM, FIRSTS, BUTFIRSTS, PICK, REMOVE, REMDUP
+
+print [=== Data Selectors ===]
+
+make "lst [a b c d e]
+make "word "hello
+
+; FIRST / LAST
+print first :lst
+print first :word
+print last :lst
+print last :word
+
+; BUTFIRST (BF) / BUTLAST (BL)
+print butfirst :lst
+print bf :word
+print butlast :lst
+print bl :word
+
+; ITEM - 1-indexed access
+print item 1 :lst
+print item 3 :word
+
+; FIRSTS - first of each sublist
+print firsts [[a b] [c d] [e f]]
+
+; BUTFIRSTS (BFS) - butfirst of each sublist
+print butfirsts [[1 2 3] [4 5 6]]
+
+; PICK - random element
+print pick [a b c d e]
+
+; REMOVE - remove item from list
+print remove "b [a b c b d]
+
+; REMDUP - remove duplicates (keep rightmost)
+print remdup [a b a c b d]
+
+print [Data selectors: COMPLETE]

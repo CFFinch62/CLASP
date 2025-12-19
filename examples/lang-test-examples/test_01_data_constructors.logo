@@ -1,0 +1,36 @@
+; test_01_data_constructors.logo
+; Tests: WORD, LIST, SENTENCE, FPUT, LPUT, COMBINE, REVERSE, GENSYM
+
+print [=== Data Constructors ===]
+
+; WORD - concatenate words
+print word "hello "world
+print (word "a "b "c "d)
+
+; LIST - create list from items
+print list "a "b
+print (list 1 2 3 4 5)
+
+; SENTENCE (SE) - flatten into list
+print sentence [a b] [c d]
+print se "x [y z]
+print (sentence [1] [2] [3])
+
+; FPUT - add to front
+print fput "first [second third]
+
+; LPUT - add to end
+print lput "last [first second]
+
+; COMBINE - word or fput based on second arg
+print combine "a "bc
+print combine "x [y z]
+
+; REVERSE - reverse list
+print reverse [1 2 3 4 5]
+
+; GENSYM - generate unique symbol
+print gensym
+print gensym
+
+print [Data constructors: COMPLETE]

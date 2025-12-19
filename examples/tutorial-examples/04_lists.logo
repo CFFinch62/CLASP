@@ -1,0 +1,40 @@
+; 04_lists.logo
+; List processing - Logo's most powerful feature
+
+; Lists are enclosed in brackets
+make "colors [red green blue]
+print :colors
+
+; FIRST returns the first element
+print first :colors
+
+; BUTFIRST (BF) returns everything except first
+print butfirst :colors
+
+; LAST returns the last element
+print last :colors
+
+; BUTLAST (BL) returns everything except last
+print butlast :colors
+
+; FPUT adds to the front
+print fput "yellow :colors
+
+; LPUT adds to the end
+print lput "purple :colors
+
+; ITEM gets element by position (1-indexed)
+print item 2 :colors
+
+; COUNT returns the length
+print count :colors
+
+; Empty list check
+print emptyp :colors
+print emptyp []
+
+; List checks
+print listp :colors
+print listp "hello
+print wordp "hello
+print numberp 42

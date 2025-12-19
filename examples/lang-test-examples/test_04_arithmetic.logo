@@ -1,0 +1,55 @@
+; test_04_arithmetic.logo
+; Tests: SUM, DIFFERENCE, PRODUCT, QUOTIENT, REMAINDER, MODULO, POWER, SQRT, ABS, INT, ROUND
+
+print [=== Arithmetic ===]
+
+; SUM (+)
+print sum 3 5
+print (sum 1 2 3 4 5)
+print 10 + 20
+
+; DIFFERENCE (-)
+print difference 10 3
+print 100 - 25
+
+; PRODUCT (*)
+print product 4 5
+print (product 2 3 4)
+print 6 * 7
+
+; QUOTIENT (/)
+print quotient 20 4
+print 15 / 3
+
+; REMAINDER
+print remainder 17 5
+print remainder -17 5
+
+; MODULO
+print modulo 17 5
+print modulo -17 5
+
+; POWER
+print power 2 10
+print power 3 4
+
+; SQRT
+print sqrt 16
+print sqrt 2
+
+; ABS
+print abs -42
+print abs 42
+
+; INT
+print int 3.7
+print int -3.7
+
+; ROUND
+print round 3.4
+print round 3.6
+
+; MINUS (unary)
+print minus 5
+
+print [Arithmetic: COMPLETE]

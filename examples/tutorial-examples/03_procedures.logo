@@ -1,0 +1,40 @@
+; 03_procedures.logo
+; Defining and using procedures (functions)
+
+; Basic procedure definition
+to say.hello
+  print [Hello from a procedure!]
+end
+
+say.hello
+
+; Procedures with inputs (parameters)
+to square :n
+  output :n * :n
+end
+
+print square 5
+print square 12
+
+; Procedures can call other procedures
+to cube :n
+  output :n * square :n
+end
+
+print cube 3
+
+; Multiple inputs
+to rectangle.area :width :height
+  output :width * :height
+end
+
+print rectangle.area 4 5
+
+; Procedures with no output use STOP
+to countdown :n
+  if :n = 0 [print "Blastoff! stop]
+  print :n
+  countdown :n - 1
+end
+
+countdown 5

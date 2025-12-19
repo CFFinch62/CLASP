@@ -1,0 +1,24 @@
+; 02_variables.logo
+; Working with variables in Logo
+
+; Create a variable with MAKE
+make "name "Alice
+make "age 25
+
+; Access variable value with :
+print (sentence [Hello,] :name)
+print (sentence [You are] :age [years old.])
+
+; Variables can hold numbers, words, or lists
+make "fruits [apple banana cherry]
+print :fruits
+
+; LOCAL creates variables inside procedures
+to greet :person
+  local "message
+  make "message (sentence [Welcome,] :person)
+  print :message
+end
+
+greet "Bob
+greet "Carol

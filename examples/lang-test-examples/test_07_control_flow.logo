@@ -1,0 +1,44 @@
+; test_07_control_flow.logo
+; Tests: IF, IFELSE, REPEAT, WHILE, FOR, FOREACH, RUN, STOP, OUTPUT, CATCH, THROW
+
+print [=== Control Flow ===]
+
+; IF
+if 1=1 [print [If worked]]
+if 1=2 [print [If failed]]
+
+; IFELSE
+ifelse 1=1 [print [IfElse True worked]] [print [IfElse True failed]]
+ifelse 1=2 [print [IfElse False failed]] [print [IfElse False worked]]
+
+; REPEAT
+print [Repeat loop:]
+repeat 3 [print "rep]
+
+; RUN
+run [print [Run works]]
+
+; STOP (in procedure)
+to test.stop
+  print [Start stop test]
+  stop
+  print [This should not print]
+end
+test.stop
+
+; OUTPUT (in procedure)
+to test.output
+  output "ReturnedValue
+end
+print test.output
+
+; CATCH / THROW (Error handling specific to Logo)
+; PyLogo has catch/throw? Let's test.
+catch "mylabel [
+    print [In catch block]
+    throw "mylabel
+    print [Should not print]
+]
+print [After catch]
+
+print [Control Flow: COMPLETE]

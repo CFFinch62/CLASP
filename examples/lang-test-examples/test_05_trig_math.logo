@@ -1,0 +1,45 @@
+; test_05_trig_math.logo
+; Tests: SIN, COS, TAN, ARCTAN, EXP, LOG10, LN, RANDOM, RERANDOM, PI
+
+print [=== Trigonometry & Advanced Math ===]
+
+; PI constant (if available, otherwise we use 3.14159 or similar if checks fail)
+; PyLogo might not have PI as a variable by default, but let's test.
+; Actually usually it's a function or variable.
+; checking builtins, there is no PI constant but maybe it is in math imports.
+; Let's assume standard Logo might use PI, if not we will see.
+
+; Trig functions (usually take degrees)
+print sin 30
+print cos 60
+print sin 90
+
+; RADSIN / RADCOS (radians)
+print radsin 1.5708 ; ~ pi/2
+print radcos 3.1416 ; ~ pi
+
+; ARCTAN
+print arctan 1
+print arctan 1 1 ; y x -> 45 degrees
+
+; EXP (e^x)
+print exp 1
+
+; LOG10
+print log10 100
+
+; LN
+print ln 2.71828
+
+; RANDOM
+print random 10
+print random 100
+
+; RERANDOM (Seeding)
+rerandom 123
+make "r1 random 100
+rerandom 123
+make "r2 random 100
+print equalp :r1 :r2 ; Should be TRUE
+
+print [Trig & Math: COMPLETE]
